@@ -86,7 +86,6 @@ export default {
 @import '../style/variables';
 
 header {
-    background-color: pink;
     height: 90px;
 
     .flex-header {
@@ -95,24 +94,39 @@ header {
     height: 100%;
     align-items: center;
     }
-
+    // logo
     .logo {
         img {
             width: 60px;
         }
     }
-
+    // nav
     nav {
+        height: 100%;
+
         ul {
+            height: 100%;
             display: flex;
 
             li {
                 padding: 0 10px;
+                position: relative;
+                line-height: 90px;
 
                 &.selected-item {
-                    display: inline-block;
-                    line-height: 0.9;
-                    border-bottom: 4px solid $brand_main_color;      
+                    color: $brand_main_color;
+
+                    &::after {
+                        content: "";
+                        height: 3px;
+                        width: 100%;
+                        position: absolute;
+                        bottom: 0;
+                        left: 0;
+                        display: inline-block;
+                        background-color: $brand_main_color;
+                    }
+                    
                 }
 
                 a {

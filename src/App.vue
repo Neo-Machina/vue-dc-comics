@@ -3,7 +3,7 @@
     <PageHeader />
 
     <main>
-
+      <ComicsSection />
     </main>
 
     <Footer />
@@ -12,11 +12,13 @@
 
 <script>
 import PageHeader from "./components/PageHeader.vue";
+import ComicsSection from "./components/ComicsSection.vue"
 
 export default {
   name: 'App',
   components: {
-    PageHeader
+    PageHeader,
+    ComicsSection
   }
 }
 </script>
