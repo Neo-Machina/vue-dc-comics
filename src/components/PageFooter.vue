@@ -8,7 +8,7 @@
                     
                     <ul>
                         <li v-for="(link,index) in dcComics.footerLinks" :key="index">
-                            <a href="#">
+                            <a :href="dcComics.url">
                                 {{ link }}
                             </a>
                         </li>
@@ -18,7 +18,7 @@
 
                     <ul>
                         <li v-for="(link,index) in shop.footerLinks" :key="index">
-                            <a href="#">
+                            <a :href="shop.url">
                                 {{ link }}
                             </a>
                         </li>
@@ -29,7 +29,7 @@
 
                     <ul>
                         <li v-for="(link,index) in dc.footerLinks" :key="index">
-                            <a href="#">
+                            <a :href="dc.url">
                                 {{ link }}
                             </a>
                         </li>                     
@@ -40,7 +40,7 @@
 
                     <ul>
                         <li v-for="(link,index) in sites.footerLinks" :key="index">
-                            <a href="#">
+                            <a :href="sites.url">
                                  {{ link }}
                             </a>
                         </li>
@@ -53,8 +53,22 @@
             </div>
         </div>
         <!-- footer-bottom -->
-        <div>
+        <div class="footer_bottom">
+            <div class="container">
+                <button class="btn_footer">sign-up now!</button>
 
+                <div class="flex-icon_links">
+                    <h3>follows us</h3>
+
+                    <ul>
+                        <li v-for="(icon,index) in iconMenuFooter" :key="index">
+                            <a href="#">
+                                <img :src="icon.iconImg" :alt="icon.alt">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </footer>
 </template>
@@ -66,6 +80,7 @@ export default {
         return {
             dcComics: {
                 title: 'dc comics',
+                url: '#',
                 footerLinks: [
                     'characters',
                     'comics',
@@ -78,6 +93,7 @@ export default {
             },
             shop: {
                 title: 'shop',
+                url: '#',
                 footerLinks: [
                     'shop DC',
                     'shop DC collectibles',
@@ -85,6 +101,7 @@ export default {
             },
             dc: {
                 title: 'dc',
+                url: '#',
                 footerLinks: [
                     'terms of use',
                     'privacy police (new)',
@@ -101,6 +118,7 @@ export default {
             },
             sites: {
                 title: 'sites',
+                url: '#',
                 footerLinks: [
                     'DC',
                     'MAD magazine',
@@ -108,7 +126,34 @@ export default {
                     'DC universe',
                     'DC power visa',
                 ]
-            }
+            },
+            iconMenuFooter: [
+                {
+                    url: '#',
+                    iconImg: require('../assets/img/footer-facebook.png'),
+                    alt: 'facebook-icon'
+                },
+                {
+                    url: '#',
+                    iconImg: require('../assets/img/footer-twitter.png'),
+                    alt: 'twitter-icon'
+                },
+                {
+                    url: '#',
+                    iconImg: require('../assets/img/footer-youtube.png'),
+                    alt: 'youtube-icon'
+                },
+                {
+                    url: '#',
+                    iconImg: require('../assets/img/footer-pinterest.png'),
+                    alt: 'pinterest-icon'
+                },
+                {
+                    url: '#',
+                    iconImg: require('../assets/img/footer-periscope.png'),
+                    alt: 'periscope-icon'
+                }
+            ]
         }
     }
 }
@@ -168,5 +213,51 @@ footer {
         }
     }
     // FOOTER-BOTTOM
+    .footer_bottom {
+        background-color: #303030;
+        height: 80px;
+
+        .container {
+            display: flex;
+            height: 100%;
+            align-items: center;
+            justify-content: space-between;
+
+            .btn_footer {
+                color: white;
+                border: 1px solid $brand_main_color;
+                padding: 10px;
+                background-color: #303030;
+                text-transform: $text_uppercase;
+                cursor: pointer;
+            }
+
+            .flex-icon_links {
+                display: flex;
+                align-items: center;
+
+
+                h3 {
+                    text-transform: $text_uppercase;  
+                    font-size: 15px;     
+                    margin-right: 15px;
+                    color: $brand_main_color;
+                }
+
+                ul {
+                    li {
+                        display: inline-block;
+                        margin: 0 8px;
+
+                        a {
+                            img {
+                                width: 28px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 </style>

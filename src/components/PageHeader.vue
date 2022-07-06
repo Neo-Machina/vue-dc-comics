@@ -112,6 +112,7 @@ header {
                 padding: 0 10px;
                 position: relative;
                 line-height: 90px;
+                cursor: pointer;
 
                 &.selected-item {
                     color: $brand_main_color;
