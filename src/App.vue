@@ -7,7 +7,7 @@
       <IconSection />
     </main>
 
-    <Footer />
+    <PageFooter />
   </div>
 </template>
 
@@ -15,6 +15,7 @@
 import PageHeader from "./components/PageHeader.vue";
 import ComicsSection from "./components/ComicsSection.vue";
 import IconSection from "./components/IconSection.vue";
+import PageFooter from "./components/PageFooter.vue";
 
 
 export default {
@@ -22,7 +23,8 @@ export default {
   components: {
     PageHeader,
     ComicsSection,
-    IconSection
+    IconSection,
+    PageFooter
   }
 }
 </script>

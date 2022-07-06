@@ -65,10 +65,11 @@ export default {
 section {
     height: 110px;
     background-color: $brand_main_color;
+    position: relative;
 
     .container {
         height: 100%;
-
+        z-index: 10;
         ul {
             height: 100%;
             display: flex;
@@ -76,7 +77,6 @@ section {
             justify-content: space-around;
 
             li {
-
                 a {
                     .flex-link {
                         display: flex;
