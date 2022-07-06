@@ -131,7 +131,7 @@ header {
 
                 a {
                     font-size: 10px;
-                    text-transform: uppercase;
+                    text-transform: $text_uppercase;
                 }
             }
         }
