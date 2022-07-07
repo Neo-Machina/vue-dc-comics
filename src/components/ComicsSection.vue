@@ -2,119 +2,82 @@
     <section>
         <img src="../assets/img/jumbotron.jpg" alt="jumbotron">
 
-        <div class="container flex">
-            <div class="cards_list">
-                <ComicCard />
+        <div class="container">
+            <div class="current_series">current series</div>
+
+            <div class="row">
+                <ComicCard v-for="(element,index) in comics" :key="index" :cardDetailes="element" />
             </div>
+
+            <button class="button_comics">load more</button>
         </div>
     </section>
 </template>
 
 <script>
-import ComicCard from "./components/ComicCard.vue";
+import ComicCard from "./ComicCard.vue";
+import DcComicsJson from "../assets/dc-comics.json";
 
 export default {
     name: 'ComicsSection',
     components: {
-        ComicCard
+        ComicCard,
     },
     data() {
         return {
-            comics: [
-                {
-                    "thumb": "https://www.dccomics.com/sites/default/files/styles/covers192x291/public/comic-covers/2018/09/AC1000_DLX_162-001_HD_5ba13723281ab0.37845353.jpg?itok=ZsI-C5eX",
-                    "price": "$19.99",
-                    "series": "Action Comics",
-                    "type": "comic book"
-                },
-                {
-                    "thumb": "https://www.dccomics.com/sites/default/files/styles/covers192x291/public/comic-covers/2020/09/AV1976_01_300-001_HD_5f738f6e39ddd7.18205602.jpg?itok=VgdYdJ01",
-                    "price": "$3.99",
-                    "series": "American Vampire 1976",
-                    "type": "comic book"
-                },
-                {
-                    "thumb": "https://www.dccomics.com/sites/default/files/styles/covers192x291/public/gn-covers/2018/08/AQMv4_UW_153-001_HD_5b7efa1745a9b8.08589135.jpg?itok=HPTtnrsb",
-                    "price": "$16.99",
-                    "series": "Aquaman",
-                    "type": "graphic novel"
-                },
-                {
-                    "thumb": "https://www.dccomics.com/sites/default/files/styles/covers192x291/public/comic-covers/2018/06/batgirl_v5_1_5b23e1f1124941.50950783.jpg?itok=VnrJah76",
-                    "price": "$2.99",
-                    "series": "Batgirl",
-                    "type": "comic book"
-                },
-                {
-                    "thumb": "https://www.dccomics.com/sites/default/files/styles/covers192x291/public/comic-covers/2018/09/BM_56_300-001_HD_5ba137a85c3bf3.33122291.jpg?itok=3FHJQYJZ",
-                    "price": "$3.99",
-                    "series": "Batman",
-                    "type": "comic book"
-                },
-                {
-                    "thumb": "https://www.dccomics.com/sites/default/files/styles/covers192x291/public/comic-covers/2018/09/BM_56_300-001_HD_5ba137a85c3bf3.33122291.jpg?itok=3FHJQYJZ",
-                    "price": "$2.99",
-                    "series": "Batman Beyond",
-                    "type": "comic book"
-                },
-                {
-                    "thumb": "https://www.dccomics.com/sites/default/files/styles/covers192x291/public/comic-covers/2019/08/BMSM_5d4361b7116261.74371456.jpg?itok=kEDR2OL8",
-                    "price": "$3.99",
-                    "series": "Batman/Superman",
-                    "type": "comic book"
-                },
-                {
-                    "thumb": "https://www.dccomics.com/sites/default/files/styles/covers192x291/public/comic-covers/2020/09/BMSMANN_01_300-001_HD_5f5ff17fa1d665.74704970.jpg?itok=azz5sfGk",
-                    "price": "$4.99",
-                    "series": "Batman/Superman Annual",
-                    "type": "comic book"
-                },
-                {
-                    "thumb": "https://www.dccomics.com/sites/default/files/styles/covers192x291/public/comic-covers/2020/09/BMTJWZ_01_300-001_HD_5f5ff2307dcb37.34652945.jpg?itok=VswVjLR8",
-                    "price": "$5.99",
-                    "series": "Batman: The Joker War Zone",
-                    "type": "comic book"
-                },
-                {
-                    "thumb": "https://www.dccomics.com/sites/default/files/styles/covers192x291/public/comic-covers/2020/08/cover-v2_5f40314645a734.37285065.png?itok=ImNM2QBY",
-                    "price": "$6.99",
-                    "series": "Batman: Three Jokers",
-                    "type": "comic book"
-                },
-                {
-                    "thumb": "https://www.dccomics.com/sites/default/files/styles/covers192x291/public/comic-covers/2020/10/BMWK_HQ_01_300-001_HD_5f7cb4945e13f6.89501032.jpg?itok=sVwALbUX",
-                    "price": "$4.99",
-                    "series": "Batman: White Knight Presents: Harley Quinn",
-                    "type": "comic book"
-                },
-                {
-                    "thumb": "https://www.dccomics.com/sites/default/files/styles/covers192x291/public/gn-covers/2019/04/CTWv1_CC_144-001_HD_5ca5299a751963.53054221.jpg?itok=ooPaoLDq",
-                    "price": "$16.99",
-                    "series": "Catwoman",
-                    "type": "graphic novel"
-                }
-            ]
+            comics: DcComicsJson
         }
     }
 }
 </script>
 
 <style lang="scss" scoped>
+@import '../style/variables';
+
 section {
     color: white;
-    height: 38rem;
+    height: 52.5rem;
     background-color: #1c1c1c;
 
     img {
-        height: 14.4rem;
+        height: 19.8rem;
         object-fit: cover;
         object-position: center 0px;
     }
 
-    .flex {
-        height: 100%;
-        display: flex;
-        align-items: center;
-    }
+    .container {
+        position: relative; 
+
+        .current_series {
+            background-color: $brand_main_color;
+            padding: 10px 20px;
+            display: inline-block;
+            text-transform: $text_uppercase;
+            font-size: 18px;
+            font-weight: bold;
+            position: absolute;
+            top: -22px;
+        }
+
+        .row {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        } 
+
+        .button_comics {
+            text-transform: uppercase;
+            padding: 10px 50px;
+            background-color: $brand_main_color;
+            font-size: 11px;
+            color: white;
+            border: $brand_main_color;
+            position: absolute;
+            top: 490px;
+            left: 50%;
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+    } 
 }
 </style>
