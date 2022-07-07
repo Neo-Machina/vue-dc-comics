@@ -21,7 +21,7 @@ import DcComicsJson from "../assets/dc-comics.json";
 export default {
     name: 'ComicsSection',
     components: {
-        ComicCard,
+        ComicCard
     },
     data() {
         return {
@@ -63,6 +63,7 @@ section {
             display: flex;
             justify-content: space-between;
             flex-wrap: wrap;
+            margin: 0 15px;
         } 
 
         .button_comics {

@@ -206,12 +206,14 @@ footer {
                 }
             }
         }
+
         .dc_logo_bg {
             width: 27rem;
             overflow: hidden;
             margin-top: -75px;
         }
     }
+
     // FOOTER-BOTTOM
     .footer_bottom {
         background-color: #303030;
@@ -235,7 +237,6 @@ footer {
             .flex-icon_links {
                 display: flex;
                 align-items: center;
-
 
                 h3 {
                     text-transform: $text_uppercase;  

@@ -98,7 +98,4 @@ section {
         }
     }
 }
-
-
-
 </style>

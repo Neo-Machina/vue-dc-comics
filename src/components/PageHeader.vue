@@ -126,8 +126,7 @@ header {
                         left: 0;
                         display: inline-block;
                         background-color: $brand_main_color;
-                    }
-                    
+                    }                    
                 }
 
                 a {
